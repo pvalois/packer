@@ -1,7 +1,7 @@
 {
   "variables": {
       "boot_wait": "5s",
-      "disk_size": "40960",
+      "disk_size": "16384",
       "iso_checksum": "c67876a5602faa17f68b40ccf2628799b87454aa67700f0f57eec15c6ccdd98c",
       "iso_url": "http://miroir.univ-paris13.fr/centos/8/isos/x86_64/CentOS-8.2.2004-x86_64-boot.iso",
       "memsize": "1024",
@@ -68,18 +68,6 @@
         "dnf -y update",
         "dnf -y install python3",
         "alternatives --set python /usr/bin/python3",
-        "pip3 install ansible"
-      ]
-    },
-    {
-      "type": "ansible-local",
-      "playbook_file": "scripts/setup.yml"
-    },
-    {
-      "type": "shell",
-      "execute_command": "echo 'packer'|{{.Vars}} sudo -S -E bash '{{.Path}}'",
-      "scripts": [
-        "scripts/cleanup.sh"
       ]
     }
   ]
